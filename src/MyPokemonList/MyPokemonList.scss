@@ -1,0 +1,95 @@
+@media (orientation: portrait) {
+.my-pokemon{
+    padding:1rem;
+    display: flex;
+    flex-direction: column;
+    background: #184D47;
+    box-sizing: border-box;
+    // height: 100vh;
+    // overflow: scroll;
+    .all-my-collection{
+        display: flex;
+        margin: -1rem -1rem;
+        padding-right: 1rem;
+        flex-wrap: wrap;
+        height: 88vh;
+        justify-content: space-around;
+        overflow: scroll;
+        .pokemon-collection{
+            color:white;
+            display: inherit;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .pokemon-collection:last-child{
+            margin-bottom:5rem;
+        }
+    }
+    img{
+        width:30%;
+    }
+    h1{
+        color:white;
+    }
+    button{
+        color: white;
+        width: 4rem;
+        height: 2rem;
+        background: #b90736;
+        border:0;
+        border-radius: 0.3rem;
+    }
+}
+}
+@media (orientation: landscape) {
+    .my-pokemon{
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+        background: #184D47;
+        box-sizing: border-box;
+        height: 100vh;
+        overflow: hidden;
+        .all-my-collection{
+            display:flex;
+            margin:0;
+            height: 85vh;
+            flex-wrap: wrap;
+            padding: 1rem;
+            margin-top: 3vh;
+            justify-content: space-between;
+            overflow: scroll;
+            .pokemon-collection{
+                color:white;
+                display: inherit;
+                flex-direction: row;
+                align-items: center;
+                width:43rem;
+                justify-content:space-between;
+            }
+            .pokemon-collection:last-child{
+                margin-bottom:5rem;
+            }
+        }
+        img{
+            width:30%;
+        }
+        h1{
+            color:white;
+            padding: 1rem 1rem 0.5rem 1rem;
+            font-size: 5vw;
+            color: white;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0 0 auto 0;
+        }
+        button{
+            color: white;
+            width: 4rem;
+            height: 2rem;
+            background: #b90736;
+            border:0;
+            border-radius: 0.3rem;
+        }
+    }
+  }

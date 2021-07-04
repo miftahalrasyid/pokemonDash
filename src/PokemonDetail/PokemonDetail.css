@@ -1,0 +1,180 @@
+.details {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #CD113B;
+  background: #184D47;
+  left: 0;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  bottom: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  -webkit-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.details button {
+  width: 100%;
+  border-radius: 1rem;
+  border: none;
+  background: #CE1F6A;
+}
+
+.details h3 {
+  color: white;
+}
+
+.details p {
+  padding: 0;
+  padding: 0.5rem 0;
+  margin: 0;
+  color: white;
+}
+
+.details h3:nth-child(2) {
+  margin-top: 4rem;
+}
+
+.details .color-block {
+  background: #CD113B;
+  background: #184D47;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  width: 100vw;
+  height: 100%;
+}
+
+h1 {
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.back-btn {
+  width: 9vw;
+  margin: 1rem 0.5rem 0 0.5rem;
+  display: inline-block;
+}
+
+.detail-img {
+  position: absolute;
+  width: auto;
+  max-height: 55vh;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.details-container {
+  width: 100vw;
+  height: 100%;
+  overflow: scroll;
+  /* Track */
+  /* Handle */
+}
+
+.details-container ::-webkit-scrollbar {
+  width: 7px;
+}
+
+.details-container ::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+.details-container ::-webkit-scrollbar-thumb {
+  background: #CE1F6A;
+  border-radius: 10px;
+}
+
+.details-container ::-webkit-scrollbar-track-piece:end {
+  background: transparent;
+}
+
+.details-container ::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+  margin-top: 11vh;
+}
+
+.overlay {
+  visibility: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0);
+  -webkit-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+
+.failedpopup {
+  visibility: hidden;
+  width: 80%;
+  height: 17%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  right: 0;
+  margin: auto;
+  background: #184D47;
+  border-radius: 1rem;
+}
+
+.failedpopup h2 {
+  color: white;
+}
+
+.failedpopup input[type='submit'] {
+  width: 43%;
+  text-indent: 0;
+}
+
+.popup {
+  visibility: hidden;
+  width: 80%;
+  height: 25%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  right: 0;
+  margin: auto;
+  background: #184D47;
+  border-radius: 1rem;
+}
+
+.popup h2 {
+  color: white;
+}
+
+.popup input {
+  border: 0;
+  border-radius: 0.2rem;
+  text-indent: 1rem;
+  width: 57%;
+  height: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.popup input[type='submit'] {
+  width: 43%;
+  text-indent: 0;
+}
+/*# sourceMappingURL=PokemonDetail.css.map */

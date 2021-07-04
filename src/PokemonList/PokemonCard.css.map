@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAA;EACJ,OAAO,EAAE,IAAI;EACb,SAAS,EAAE,IAAI;EACf,eAAe,EAAE,MAAM;EACvB,UAAU,EAAE,MAAM;CACrB;;AACD,AAAA,eAAe,CAAA;EAEX,KAAK,EAAC,IAAI;EACV,SAAS,EAAC,KAAK;CAKlB;;AARD,AAII,eAJW,CAIX,GAAG,CAAA;EACC,KAAK,EAAC,IAAI;EACV,SAAS,EAAC,KAAK;CAClB",
+    "sources": [
+        "PokemonCard.scss"
+    ],
+    "names": [],
+    "file": "PokemonCard.css"
+}

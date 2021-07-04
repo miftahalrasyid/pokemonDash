@@ -1,0 +1,22 @@
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.card-container {
+  width: 30vw;
+  max-width: 250px;
+}
+
+.card-container img {
+  width: 30vw;
+  max-width: 200px;
+}
+/*# sourceMappingURL=PokemonCard.css.map */
