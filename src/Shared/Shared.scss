@@ -19,7 +19,8 @@
         }
         ul{
             display: flex;
-            padding: 1rem 0;
+            // padding: 1rem 0;
+            padding: 0;
             margin:0;
             justify-content: space-evenly;
             list-style-type: none;
@@ -40,6 +41,7 @@
     .main-header{
     position: fixed;
     top: 3vh; 
+    z-index: 1;
     // margin: 21px 2rem;
     box-sizing: border-box;
     right: 4vw;
@@ -47,11 +49,17 @@
     height: -moz-fit-content;
     height: fit-content;
     border-radius: 1rem;
-    background: #FF7600;
-    background: #CE1F6A;
+    // background: #FF7600;
+    // background: #CE1F6A;
     width: 23%;
         nav{
             height: 100%;
+        }
+        .pokeball{
+            margin:0;
+        }
+        .bag{
+            margin:0;
         }
         ul{
             display: flex;
@@ -63,6 +71,9 @@
             // align-items: ;
             justify-content:space-around;
             list-style-type: none;
+        }
+        hr{
+            display:none
         }
         li{
             width:100%;

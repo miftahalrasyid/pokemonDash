@@ -7,18 +7,40 @@ import {PokemonList} from "./PokemonList";
 import {MyPokemonList} from "./MyPokemonList";
 import { PokemonDetail,GetPokemonDetail } from "./PokemonDetail";
 import {useCookies} from "react-cookie";
+import styled from "@emotion/styled";
 
 
 export const AppContext = React.createContext({});
 
 const history = createBrowserHistory();
+const PokeBall = styled.div(props=> ({
+  width: "14vw",
+  margin: props.mobile ? "0 12vw" : "0",
+    height: "10.7vh",
+    background: `url(/images/pokeball.png) 50% 50%/auto 7.7vh no-repeat`
+    // background: `${!props.mobile ? "url(/images/pokeball-pink.png)" : "url(/images/pokeball.png)"} 50% 50%/auto 7.7vh no-repeat`
+}))
+const AshBag = styled.div(props=> ({
+  width: "14vw",
+  margin: props.mobile ? "0 12vw" : "0",
+  height: "10.7vh",
+    background: `url(/images/bag.png) 50% 50%/ auto 7.7vh no-repeat`
+    // background: `${!props.mobile ? "url(/images/bag-pink.png)" : "url(/images/bag.png)"} 50% 50%/ auto 7.7vh no-repeat`
+}))
+// const HeaderStyle = styled.div(props=> ({
+//   background: !props.mobile ? "#CE1F6A":"transparent" 
+// }))
 
 
 function App() {
+  const [orientation,setOrientation] = React.useState(true)
   const [cookies,setCookie] = useCookies(['name',"mypokemon"]);
   // console.log("der")
   React.useEffect(()=>{
-
+    console.log(window.innerHeight)
+    console.log(window.innerWidth)
+    if(window.innerWidth > window.innerHeight)
+    setOrientation(false)
     console.log(cookies.mypokemon)
     if(!cookies.mypokemon){
       // setCookie('mypokemon',[],{path:'/'})
@@ -55,9 +77,17 @@ function App() {
         <div className="main-header">
           <nav>
             <ul>
-              <li><Link to="/"><img src="/images/pokeball.png" alt="pokeball"/></Link></li>
-              
-              <li><Link to="/my-pokemon"><img src="/images/bag.png" alt="bag"/></Link></li>
+              <li><Link to="/">
+                {/* <img src="/images/pokeball.png" alt="pokeball"/> */}
+                <PokeBall className="pokeball" mobile={orientation}></PokeBall>
+                </Link>
+              </li>
+              {orientation ? <hr/> : null}
+              <li>
+                <Link to="/my-pokemon">
+                  {/* <img src="/images/bag.png" alt="bag"/> */}
+                <AshBag className="bag" mobile={orientation}></AshBag>
+                  </Link></li>
             </ul>
           </nav>
         </div>

@@ -99,7 +99,8 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 43rem;
+    width: 31rem;
+    margin-right: 3rem;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
@@ -109,6 +110,7 @@
   }
   .my-pokemon img {
     width: 30%;
+    max-width: 150px;
   }
   .my-pokemon h1 {
     color: white;

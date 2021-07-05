@@ -2,7 +2,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 import {AppContext} from "../App";
 import './PokemonDetail.css';
-import {useCookies} from "react-cookie";
+// import {useCookies} from "react-cookie";
+import styled from '@emotion/styled'
 
 export const GetPokemonDetail = (prop) => {
     const {match} = prop;
@@ -93,7 +94,10 @@ export const GetPokemonDetail = (prop) => {
         .then(res=>res.json())
         .then(data=>{
             setPokemonDetail(data)
+            if(window.innerWidth < window.innerHeight)
             document.querySelector(".details").style.height= "36vh";
+            else
+            document.querySelector(".details").style.width= document.documentElement.style.setProperty('--details-width', 32 + "vw");
         });
     },[match])
     React.useEffect(()=>{
@@ -114,7 +118,10 @@ export const GetPokemonDetail = (prop) => {
             if(document.querySelector(".details")){
                 // animate = "false";
                 // containerItem.setAttribute("animated","true")
+                if(window.innerWidth < window.innerHeight)
                 containerItem.style.height= "36vh";
+                else
+                containerItem.style.width= document.documentElement.style.setProperty('--details-width', 32 + "vw");
             }
             // setValue({height: "26vh"})
         },[])
@@ -144,7 +151,7 @@ export const GetPokemonDetail = (prop) => {
         <div className="details" ref={el => {containerItem = el}}>
             {/* <div className="color-block"></div> */}
             {/* <h2></h2> */}
-            <div style={{position:"fixed",width:"93vw",height:"7vh",left:0,right:0,margin:"-1rem auto",padding:"0.7rem 0",background:"#184D47"}}>
+            <div className="catch-container" >
                 <button onClick={catchItClick}><h3>Catch it!</h3></button>
             </div>
             <h3>Types</h3>

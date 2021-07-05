@@ -65,7 +65,8 @@
                 display: inherit;
                 flex-direction: row;
                 align-items: center;
-                width:43rem;
+                width:31rem;
+                margin-right: 3rem;
                 justify-content:space-between;
             }
             .pokemon-collection:last-child{
@@ -74,6 +75,7 @@
         }
         img{
             width:30%;
+            max-width: 150px;
         }
         h1{
             color:white;
