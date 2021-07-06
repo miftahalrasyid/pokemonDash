@@ -12,6 +12,7 @@
     background: #FF7600;
     background: #CE1F6A;
     width: 80%;
+    z-index: 11;
   }
   .main-header nav {
     width: 100%;
@@ -37,7 +38,7 @@
   .main-header {
     position: fixed;
     top: 3vh;
-    z-index: 1;
+    z-index: 3;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     right: 4vw;

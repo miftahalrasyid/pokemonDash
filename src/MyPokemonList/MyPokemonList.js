@@ -7,7 +7,8 @@ import './MyPokemonList.css';
 export const MyPokemonList = () => {
     const [cookies,setCookie] = useCookies(['name',"mypokemon"]);
   
-    const {state,dispatch} = React.useContext(AppContext);
+    const {state} = React.useContext(AppContext);
+    // const {state,dispatch} = React.useContext(AppContext);
     console.log(state)
     const onDeleteClick = (ev) => {
         console.log(ev.target.getAttribute('data-name'))
@@ -26,11 +27,17 @@ export const MyPokemonList = () => {
         <h1>My Pokemon</h1>
         <div className="all-my-collection">
 
-        {state.session ? state.session.map(({name,image},idx) => {
+        {state.session ? state.session.map(({name,image,species,types},idx) => {
             return (
                 <div className="pokemon-collection" key={"div"+idx}>
-                <img src={image} alt={"test"}/>
-                <p key={idx}>{name}</p>
+                    <div className="img-container">
+                        <img src={image} alt={"test"}/>
+                        <p key={"name"+idx}>{name}</p>
+                    </div>
+                    <div>
+                        <p key={idx}>Species: {species}</p>
+                        <p key={"species"+idx}>Types: {types}</p>
+                    </div>
                 <button key={idx+name} data-name={name} onClick={onDeleteClick} > Release</button>
                 </div>
             );

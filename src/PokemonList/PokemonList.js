@@ -1,21 +1,41 @@
 import React from "react";
-import PokemonCard,{Container} from "./PokemonCard";
+import PokemonCard from "./PokemonCard";
+// import PokemonCard,{Container} from "./PokemonCard";
 import "./PokemonList.css";
-import {Link} from "react-router-dom";
+// import {Link} from "react-router-dom";
+import { gql, useQuery } from '@apollo/client';
 // const Test = (data) =>{
 //     return <h3>test</h3>
 // }
 // window.addEventListener("beforeunload", function(){
 //     localStorage.removeItem("myKey");
 // });
+const GET_POKEMONS = gql`
+  query pokemons($limit: Int, $offset: Int) {
+    pokemons(limit: $limit, offset: $offset) {
+      count
+      next
+      previous
+      status
+      message
+      results {
+        url
+        name
+        image
+      }
+    }
+  }
+`;
+
 export const PokemonList = () => {
 
     const FETCH_LIMIT = 20;
-    let data1 = []
+    // let data1 = []
     const smartscroll = React.useRef(null);
     const [offset, setOffset] = React.useState(0);
     const [limit, setLimit] = React.useState(FETCH_LIMIT);
-    const [dataFetch,setDataFetch] = React.useState(JSON.parse(sessionStorage['myKey'] || '[]'));
+    const [apoloData,setApoloData] = React.useState(JSON.parse(sessionStorage['myKey'] || '[]'));
+    // const [dataFetch,setDataFetch] = React.useState(JSON.parse(sessionStorage['myKey'] || '[]'));
     // const [dataFetch,setDataFetch] = React.useState(JSON.parse(localStorage['myKey'] || '[]'));
     // const [dataFetch,setDataFetch] = React.useState( []);
     const [scrollFetch,setScrollFetch] = React.useState(false);
@@ -24,43 +44,75 @@ export const PokemonList = () => {
     // const Populate = () =>{
     //     return(populate)
     // }
+    const gqlVariables = {
+        limit: limit,
+        offset: offset,
+      };
+    const { data } = useQuery(GET_POKEMONS, {
+    // const { loading, error, data } = useQuery(GET_POKEMONS, {
+        variables: gqlVariables,
+    });
+    // if (loading) return 'Loading...';
+    // if (error) return `Error! ${error.message}`;
+    // console.log('Response from server', data);
     React.useEffect(()=>{
+        // setApoloData(data?.pokemons?.results || []);
+        if(data?.pokemons?.results){
+            let data1 = []; 
+            // console.log(dataFetch.length < limit)
+            // console.log(sessionStorage['myKey'])
+            // console.log(limit > apoloData.length)
+            // console.log(data?.pokemons?.results)
+            if(limit > apoloData.length){
+                data1 = [...apoloData,...data?.pokemons?.results]
+                setApoloData(data1);
+                sessionStorage['myKey'] = JSON.stringify(data1);
+                
+            }
+            setScrollFetch(true);
+        }
+        // console.log(apoloData)
+        // console.log(data?.pokemons?.results || [])
+    },[data,limit,apoloData])
+    
+    React.useEffect(()=>{
+        
         // console.log(document.querySelector(".content").scrollTop)
-        console.log(sessionStorage['myScroll'])
+        // console.log(sessionStorage['myScroll'])
         document.querySelector(".content").scrollTop = parseInt(document.querySelector("#"+sessionStorage['myScroll'])?.getBoundingClientRect()?.y || 0);
-        console.log(document.querySelector("#"+sessionStorage['myScroll'])?.getBoundingClientRect()?.y || 0 -parseInt(window.innerHeight))
+        // console.log(document.querySelector("#"+sessionStorage['myScroll'])?.getBoundingClientRect()?.y || 0 -parseInt(window.innerHeight))
         // console.log(parseInt(document.querySelector(".content").scrollTop)-parseInt(window.innerHeight))
         document.querySelector(".content").scrollTop = parseInt(document.querySelector(".content").scrollTop)-parseInt(window.innerHeight)/4;
         // smartscroll.scrollTop = sessionStorage['myScroll'];
     },[]);
-    React.useEffect(()=>{
-        fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`)
-        .then(res=>res.json())
-        .then(data=>{
-            // console.log(dataFetch)
-            // data1 = [...dataFetch,...data.results];
-            let data1 = []; 
-            // console.log(dataFetch.length < limit)
-            // console.log(sessionStorage['myKey'])
-            if(limit > dataFetch.length){
-                data1 = [...dataFetch,...data.results]
-                setDataFetch(data1);
-                sessionStorage['myKey'] = JSON.stringify(data1);
-            }
-            // console.log(JSON.parse(sessionStorage['myKey'] || '[]'))
-            // console.log(dataFetch)
+    // React.useEffect(()=>{
+    //     fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`)
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         // console.log(dataFetch)
+    //         // data1 = [...dataFetch,...data.results];
+    //         let data1 = []; 
+    //         // console.log(dataFetch.length < limit)
+    //         // console.log(sessionStorage['myKey'])
+    //         if(limit > dataFetch.length){
+    //             data1 = [...dataFetch,...data.results]
+    //             setDataFetch(data1);
+    //             sessionStorage['myKey'] = JSON.stringify(data1);
+    //         }
+    //         // console.log(JSON.parse(sessionStorage['myKey'] || '[]'))
+    //         // console.log(dataFetch)
 
-            // localStorage.clear();
-            // sessionStorage.clear();
-            // let distinct = [...new Set(data1.map(a=>a.name))];
-            // sessionStorage['myKey'] = JSON.stringify(distinct);
-        // console.log(JSON.parse(localStorage['myKey']))
+    //         // localStorage.clear();
+    //         // sessionStorage.clear();
+    //         // let distinct = [...new Set(data1.map(a=>a.name))];
+    //         // sessionStorage['myKey'] = JSON.stringify(distinct);
+    //     // console.log(JSON.parse(localStorage['myKey']))
 
-            // console.log(data1)
-            // setDataFetch([...dataFetch, data.results]);
-            setScrollFetch(true);
-        });
-    },[limit])
+    //         // console.log(data1)
+    //         // setDataFetch([...dataFetch, data.results]);
+    //         setScrollFetch(true);
+    //     });
+    // },[limit])
     // },[scrollFetch])
   
     // React.useEffect(()=>{
@@ -111,7 +163,7 @@ export const PokemonList = () => {
           </nav>
         </div> */}
         <section className="content" ref={smartscroll} onScroll={onPageScroll}>
-            {dataFetch.map((item,idx)=>{
+            {apoloData.map((item,idx)=>{
                 return(
                     <React.Fragment key={idx}>
                         <PokemonCard {...item} />

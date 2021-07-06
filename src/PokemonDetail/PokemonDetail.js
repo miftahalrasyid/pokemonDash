@@ -3,7 +3,37 @@ import {Link} from "react-router-dom";
 import {AppContext} from "../App";
 import './PokemonDetail.css';
 // import {useCookies} from "react-cookie";
-import styled from '@emotion/styled'
+// import styled from '@emotion/styled'
+import { gql, useQuery } from '@apollo/client';
+const GET_POKEMON = gql`
+  query pokemon($name: String!) {
+    pokemon(name: $name){
+        id
+        name
+        moves {
+          move {
+            name
+          }
+        }
+        species{
+            url
+            name
+        }
+        types {
+            slot
+          type {
+              url
+            name
+          }
+        }
+        sprites{
+            front_default
+          }
+        message
+        status
+      }
+  }
+`;
 
 export const GetPokemonDetail = (prop) => {
     const {match} = prop;
@@ -11,10 +41,36 @@ export const GetPokemonDetail = (prop) => {
     let popup = React.useRef(null);
     let pokemonname = React.useRef(null);
     let failedPopup = React.useRef(null);
+    // const [apolloPokemon,setApolloPokemon] = React.useState([])
+    // console.log(match.params.type)
+    let gqlVariables = {
+        name: match.params.type
+    }
+    const {error,data} = useQuery(GET_POKEMON,{
+        variables: gqlVariables
+    })
+    if (error) console.log( `Error! ${error.message}`);
+    
+    React.useEffect(()=>{
+        // console.log(data?.pokemon || [])
+        // setApolloPokemon(data?.pokemon || [])
+        // console.log(apolloPokemon)
+        // console.log(data?.pokemon?.sprites?.front_default || [])
+        if(data?.pokemon || false){
+            if(window.innerWidth < window.innerHeight)
+            document.querySelector(".details").style.height= "36vh";
+            else
+            document.querySelector(".details").style.width= document.documentElement.style.setProperty('--details-width', 32 + "vw");
+            setPokemonSpecies(data?.pokemon?.species?.name || "");
+            setPokemonImage(data?.pokemon?.sprites?.front_default || "")
+            setPokemonMoves(data?.pokemon?.moves || [])
+            setPokemonTypes(data?.pokemon?.types || [])
+        }
+    },[data])
     // const [cookies] = useCookies(['name',"mypokemon"]);
   
     const {dispatch,cookies} = React.useContext(AppContext)
-    const [pokemonDetail,setPokemonDetail] = React.useState(null)
+    // const [pokemonDetail,setPokemonDetail] = React.useState(null)
     const [pokemonMoves,setPokemonMoves] = React.useState(null)
     const [pokemonTypes,setPokemonTypes] = React.useState(null)
     const [pokemonImage,setPokemonImage] = React.useState(null)
@@ -32,11 +88,15 @@ export const GetPokemonDetail = (prop) => {
             
             alert("Please use another name")
         }
+        else if(pokemonname.value.length > 10 || false){
+            alert("Name length must be less than 10 character")
+        }
         else{
             overlay.style.background = "rgba(0,0,0,0)";
             overlay.style.visibility= "hidden";
             popup.style.visibility= "hidden";
-            dispatch({type: "myPokemon", species:pokemonSpecies, image:pokemonImage, hash: pokemonname.value});
+            // console.log(pokemonTypes.map((item)=>item.type.name))
+            dispatch({type: "myPokemon", types: pokemonTypes.map((item)=>item.type.name).toString(),species:pokemonSpecies, image:pokemonImage, hash: pokemonname.value});
         }
         // console.log(cookies.mypokemon.name.indexOf(pokemonname.value))
     }
@@ -82,36 +142,37 @@ export const GetPokemonDetail = (prop) => {
     //     }
     // },[randomNumber])
     let containerItem = React.useRef(null);
-    const [value, setValue] = React.useState("");
+    // const [value, setValue] = React.useState("");
     // const Element = ({animate}) =>{
         
     // }
 
-    React.useEffect(()=>{
-        console.log(match)
-        if(match)
-        fetch("https://pokeapi.co/api/v2/pokemon/"+match.params.type)
-        .then(res=>res.json())
-        .then(data=>{
-            setPokemonDetail(data)
-            if(window.innerWidth < window.innerHeight)
-            document.querySelector(".details").style.height= "36vh";
-            else
-            document.querySelector(".details").style.width= document.documentElement.style.setProperty('--details-width', 32 + "vw");
-        });
-    },[match])
-    React.useEffect(()=>{
-        console.log(pokemonDetail)
-        if(pokemonDetail){
-            setPokemonSpecies(pokemonDetail.species.name);
-            setPokemonImage(pokemonDetail.sprites.other['official-artwork'].front_default)
-            setPokemonMoves(pokemonDetail.moves)
-            setPokemonTypes(pokemonDetail.types)
-        }
-        // containerItem.style.height= "36vh";
-        // document.querySelector(".details").style.height= "36vh";
-    },[pokemonDetail])
-    console.log(containerItem)
+    // React.useEffect(()=>{
+    //     console.log(match)
+    //     if(match)
+    //     fetch("https://pokeapi.co/api/v2/pokemon/"+match.params.type)
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         setPokemonDetail(data)
+    //         if(window.innerWidth < window.innerHeight)
+    //         document.querySelector(".details").style.height= "36vh";
+    //         else
+    //         document.querySelector(".details").style.width= document.documentElement.style.setProperty('--details-width', 32 + "vw");
+    //     });
+    // },[match])
+    // React.useEffect(()=>{
+    //     console.log(pokemonDetail)
+    //     if(pokemonDetail){
+    //         setPokemonSpecies(pokemonDetail.species.name);
+    //         setPokemonImage(pokemonDetail.sprites.other['official-artwork'].front_default)
+    //         setPokemonMoves(pokemonDetail.moves)
+    //         setPokemonTypes(pokemonDetail.types)
+    //     }
+    //     // containerItem.style.height= "36vh";
+    //     // document.querySelector(".details").style.height= "36vh";
+    // },[pokemonDetail])
+
+    // console.log(containerItem)
         // console.log(animate);
         React.useEffect(()=>{
             // console.log("render")
@@ -129,7 +190,7 @@ export const GetPokemonDetail = (prop) => {
         <>
         {match ? <div className="details-container">
             
-            <Link to="/"><img className="back-btn" src="/images/left-arrow.png" alt="close-btn"/></Link>
+            <Link to="/pokedex"><img className="back-btn" src="/images/left-arrow.png" alt="close-btn"/></Link>
             
         <h1>{match ? match.params.type : null}</h1>
             <img className="detail-img" src={pokemonImage} alt={match.params.type+".png"}/>

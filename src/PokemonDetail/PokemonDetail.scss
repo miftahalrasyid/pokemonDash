@@ -67,7 +67,8 @@ h3{
 }
 h1{
     // z-index: 1;
-    text-transform: capitalize;
+    // text-transform: capitalize;
+    font-variant: all-small-caps;
     display:inline-block;
 }
 .back-btn{
@@ -79,6 +80,7 @@ h1{
     position:absolute;
     // z-index: 1;
     width: auto;
+    height: 55vh;
     max-height: 55vh;
     top: 10vh;
     left:0;
@@ -120,14 +122,14 @@ h1{
     height: 100vh;
     position: absolute;
     top: 0;
-    z-index: 1;
+    z-index: 11;
     background: rgba(0, 0, 0, 0);
     transition: all 0.5s linear;
 }
 .failedpopup{
     visibility:hidden;
     width: 80%;
-    height: 17%;
+    height: fit-content;
     position: absolute;
     left: 0;
     top:0;
@@ -142,13 +144,14 @@ h1{
     }
     input[type='submit']{
         width:43%;
+        margin-bottom: 2rem;
         text-indent: 0;
     }
 }
 .popup{
     visibility:hidden;
     width: 80%;
-    height: 25%;
+    height: fit-content;
     position: absolute;
     left: 0;
     top:0;
@@ -171,6 +174,7 @@ h1{
     }
     input[type='submit']{
         width:43%;
+        margin:2rem;
         text-indent: 0;
     }
 }
@@ -182,16 +186,16 @@ h1{
 @media (orientation: landscape)  {
     .details{
         box-sizing: border-box;
-        padding: 7rem 1rem 0;
+        padding: 8rem 1rem 0;
         display: flex;
         flex-direction: column;
         background: #CD113B;
         background: #184D47;
-        left: 0;
+        right: 0;
         transition: all 0.7s ease-out;
         /* border-top-left-radius: 1rem; */
         /* border-bottom-left-radius: 1rem; */
-        position: relative;
+        position: absolute;
         bottom: 0;
         width: var(--details-width);
         height: var(--details-height);
@@ -199,7 +203,7 @@ h1{
         overflow-x: hidden;
         .catch-container{
             position: fixed;
-            width: calc(var(--details-width) - 4.7vh);
+            width: calc(var(--details-width) - 1.8rem);
             height: 25vh;
             top: 0;
             /* left: 0px; */
@@ -247,8 +251,9 @@ h1{
     }
     h1{
         // z-index: 1;
-        text-transform: capitalize;
+        // text-transform: capitalize;
         display:inline-block;
+        font-variant: all-small-caps;
     }
     .back-btn{
         width: 9vw;
@@ -259,6 +264,7 @@ h1{
     .detail-img {
         position: absolute;
         width: auto;
+        height: 100%;
         max-height: 55vh;
         top: 0;
         left: 1%;
@@ -304,7 +310,7 @@ h1{
         height: 100vh;
         position: absolute;
         top: 0;
-        z-index: 1;
+        z-index: 11;
         background: rgba(0, 0, 0, 0);
         transition: all 0.5s linear;
     }

@@ -1,32 +1,39 @@
-.pokedex{
-    // padding: 1rem 1rem 0;
-    background: #CD113B;
-    background: #184D47;
-    height:100vh;
-    overflow: hidden;
-    // border-top-left-radius: 1rem;
-    // border-top-right-radius: 1rem;
-    .title{
-        padding: 1rem 1rem 0.5rem 1rem;
-        font-size: 5vw;
-        color: white;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        margin: 0 0 auto 0;
-    }
-    .content{
-        height: 85vh;
-        overflow: scroll;
-        padding: 1rem;
-        margin-top: 3vh;
-        .card-container:last-child{
-            padding-bottom:3rem;
+@media (orientation: landscape) {
+    .pokedex{
+        // padding: 1rem 1rem 0;
+        background: #CD113B;
+        background: #184D47;
+        height:100vh;
+        overflow: hidden;
+        // border-top-left-radius: 1rem;
+        // border-top-right-radius: 1rem;
+        .title{
+            font-family: 'pokemon';
+            padding: 1rem 1rem 0.5rem 1rem;
+            font-size: 5vw;
+            color: white;
+            // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0 0 auto 0;
+        }
+        .content{
+            height: 85vh;
+            overflow: scroll;
+            padding: 1rem;
+            margin-top: 3vh;
+            p{
+                font-variant: all-small-caps;
+            }
+            .card-container:last-child{
+                padding-bottom:3rem;
+            }
+        }
+        a{
+            color: white;
+            text-decoration: none;
         }
     }
-    a{
-        color: white;
-        text-decoration: none;
-    }
 }
+
 // .main-header{
 //     // display:flex;
 //     position:fixed;
@@ -62,3 +69,38 @@
         
 //     }
 // }
+@media (orientation: portrait) {
+    .pokedex{
+        // padding: 1rem 1rem 0;
+        background: #CD113B;
+        background: #184D47;
+        height:100vh;
+        overflow: hidden;
+        // border-top-left-radius: 1rem;
+        // border-top-right-radius: 1rem;
+        .title{
+            font-family: 'pokemon';
+            padding: 1rem 1rem 0.5rem 1rem;
+            font-size: 9vw;
+            color: white;
+            // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0 0 auto 0;
+        }
+        .content{
+            height: 85vh;
+            overflow: scroll;
+            padding: 1rem;
+            margin-top: 3vh;
+            p{
+                font-variant: all-small-caps;
+            }
+            .card-container:last-child{
+                padding-bottom:3rem;
+            }
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    }
+}

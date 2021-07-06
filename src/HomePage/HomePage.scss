@@ -1,0 +1,177 @@
+@font-face {
+    font-family: 'pokemon';
+    src: local('pokemon'),url("../font/Pokemon\ Hollow.ttf");
+}
+@media (orientation: portrait) {
+    .homepage{
+        // padding: 1rem 1rem 0;
+        background: #CD113B;
+        background: #184D47;
+        height:100vh;
+        overflow: hidden;
+        // border-top-left-radius: 1rem;
+        // border-top-right-radius: 1rem;
+        .title{
+            font-family: "pokemon";
+            padding: 1rem 1rem 0.5rem 1rem;
+            font-size: 9vw;
+            color: white;
+            // font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin: 0 0 auto 0;
+        }
+        .billboard{
+            display:flex;
+            padding: 1rem;
+            margin-top: 3vh;
+            img:first-child{
+                margin:auto;
+                width: 100%;
+    
+                box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), inset 11px 18px 68px #000000;
+                align-items: center;
+                background-color: #afd275;
+                border-radius: 21px;
+            }
+            img:last-child{
+                margin: auto;
+                width: 80%;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 35vh;
+                align-items: center;
+                background-color: white;
+                border-radius: 14px;
+            }
+        }
+        .drawer{
+            width:100%;
+            height:300px;
+            .card-img{
+                width: 80%;
+                height: auto;
+          }
+          p{
+              text-align: center;
+              color:white;
+          }
+        }
+            .most-popular{
+                // margin-top: 12vh;
+                margin-left: 2rem;
+                // font-size: 28pt;
+                color: white;
+            }
+            .swiper-container {
+                width: 100%;
+                padding-top: 0rem;
+                padding-bottom: 0rem;
+                margin-bottom: 7rem;
+              }
+
+              .swiper-slide {
+                background-position: center;
+                background-size: cover;
+                width: 30vw;
+                height: auto;
+              }
+              
+              .swiper-slide img {
+                display: block;
+                width: 100%;
+              }
+    }
+}
+
+@media (orientation: landscape) {
+    .homepage{
+        // padding: 1rem 1rem 0;
+        background: #CD113B;
+        background: #184D47;
+        height:fit-content;
+        overflow: hidden;
+        // border-top-left-radius: 1rem;
+        // border-top-right-radius: 1rem;
+        .title-container{
+            position: fixed;
+            background: #004e47;
+            width: 100%;
+            padding: 0.5rem;
+            z-index: 1;
+            .title{
+                font-family: "pokemon";
+                padding: 1rem 1rem 0.5rem 1rem;
+                font-size: 5vw;
+                color: white;
+                margin: 0 0 auto 0;
+            }
+        }
+        .billboard{
+            // position:relative;
+            display:flex;
+            padding: 1rem;
+            margin-top: 10rem;
+            // .chatbox{
+            //     background: url(/images/chatbox.png)
+            // }
+            img:first-child{
+                margin:auto;
+    
+                box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), inset 11px 18px 68px #000000;
+                align-items: center;
+                background-color: #afd275;
+                border-radius: 21px;
+            }
+            // img:last-child{
+            //     margin: auto;
+            //     position: absolute;
+            //     left: 0;
+            //     right: 0;
+            //     top: 26rem;
+            //     align-items: center;
+            //     background-color: white;
+            //     border-radius: 14px;
+            // }
+        }
+        .drawer{
+            margin-top:2rem;
+            height: 500px;
+            .most-popular{
+                margin-top: 12vh;
+                margin-left: 4rem;
+                font-size: 28pt;
+                color: white;
+            }
+            .card-img{
+                  width: 80%;
+                  height: auto;
+            }
+            p{
+                text-align: center;
+                color:white;
+            }
+        }
+        .swiper-container {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+          }
+          
+          .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 300px;
+          }
+          
+          .swiper-slide img {
+            display: block;
+            width: 100%;
+          }
+        //   .swiper-slide-active {
+        //     opacity: 1;
+        //     z-index: 1;
+        //     // transform: scale(1.5);
+        // }
+    }
+}
