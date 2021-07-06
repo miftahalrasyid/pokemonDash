@@ -7891,6 +7891,13 @@ optimism@^0.16.0:
     "@wry/context" "^0.6.0"
     "@wry/trie" "^0.3.0"
 
+optimist@0.3.x:
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/optimist/-/optimist-0.3.7.tgz#c90941ad59e4273328923074d2cf2e7cbc6ec0d9"
+  integrity sha1-yQlBrVnkJzMokjB00s8ufLxuwNk=
+  dependencies:
+    wordwrap "~0.0.2"
+
 optimize-css-assets-webpack-plugin@5.0.4:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-5.0.4.tgz#85883c6528aaa02e30bbad9908c92926bb52dc90"
@@ -9436,6 +9443,13 @@ readdirp@~3.5.0:
   integrity sha512-cMhu7c/8rdhkHXWsY+osBhfSy0JikwpHK/5+imo+LpeasTF8ouErHrlYkwT0++njiyuDvc7OFY5T3ukvZ8qmFQ==
   dependencies:
     picomatch "^2.2.1"
+
+rebuild@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/rebuild/-/rebuild-0.1.2.tgz#03acdea5515130b479092746e093daf8cf883e93"
+  integrity sha1-A6zepVFRMLR5CSdG4JPa+M+IPpM=
+  dependencies:
+    optimist "0.3.x"
 
 recursive-readdir@2.2.2:
   version "2.2.2"
@@ -11481,6 +11495,11 @@ word-wrap@^1.2.3, word-wrap@~1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
+
+wordwrap@~0.0.2:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/wordwrap/-/wordwrap-0.0.3.tgz#a3d5da6cd5c0bc0008d37234bbaf1bed63059107"
+  integrity sha1-o9XabNXAvAAI03I0u68b7WMFkQc=
 
 workbox-background-sync@^5.1.4:
   version "5.1.4"

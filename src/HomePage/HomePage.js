@@ -1,6 +1,5 @@
 import "./HomePage.css";
 import styled from "@emotion/styled"
-import { urlToRequest } from "loader-utils";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
@@ -23,7 +22,6 @@ const Chatbox = styled.div(props=>({
     fontSize: !props.mobile ? "inherit": "2vh",
     top: !props.mobile ? "72vh": "38vh",
     borderRadius: "14px",
-    background: "url(/images/chatbox.png) 0 0 / 300px auto no-repeat",
     width: !props.mobile ? "35vw" : "75vw",
     height: !props.mobile ? "10.8vw" : "23.2vw",
     padding: !props.mobile ? "1.4rem" : "1rem",
@@ -111,61 +109,61 @@ export const HomePage = () => {
                 }} className="mySwiper">
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png" />
+                    <img alt="greninja" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png" />
                     <p>GRENINJA</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png" />
+                    <img alt="Lucario" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png" />
                     <p>Lucario</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" />
+                    <img alt="charizard" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" />
                     <p>Charizard</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png" />
+                    <img alt="umbreon" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/197.png" />
                     <p>Umbreon</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/700.png" />
+                    <img alt="slyveon" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/700.png" />
                     <p>Sylveon</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/445.png" />
+                    <img alt="garchomp" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/445.png" />
                     <p>Garchomp</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png" />
+                    <img alt="rayquaza" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/384.png" />
                     <p>Rayquaza</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png" />
+                    <img alt="gardevoir" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png" />
                     <p>Gardevoir</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png" />
+                    <img alt="gengar" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png" />
                     <p>Gengar</p>
                     </PokeCard>
                 </SwiperSlide>
                 <SwiperSlide>
                     <PokeCard>
-                    <img className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/887.png" />
+                    <img alt="dragapult" className="card-img" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/887.png" />
                     <p>Dragapult</p>
                     </PokeCard>
                 </SwiperSlide>

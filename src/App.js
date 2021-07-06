@@ -59,7 +59,7 @@ function App() {
       dispatch({type: "set", hash: []});
     }
     console.log(cookies.mypokemon)
-  },[])
+  },[cookies.mypokemon])
   var initialState = {
     session: cookies.mypokemon
   };
